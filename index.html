@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio PUTRA S.O & WLDN S.P</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+            padding: 1em 0;
+            text-align: center;
+            border-bottom: 5px solid #666;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 1px;
+        }
+        nav {
+            margin-top: 0.5em;
+        }
+        nav a {
+            color: #ffffff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s, transform 0.3s;
+        }
+        nav a:hover {
+            color: #ffcc00;
+            transform: scale(1.1);
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 60px auto;
+            padding-top: 80px; /* space for fixed header */
+        }
+        .login-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #ffffff url('https://via.placeholder.com/500x300?text=Background+Image') no-repeat center center;
+            background-size: cover;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 2em;
+            transition: box-shadow 0.3s, transform 0.3s;
+            position: relative;
+            color: #333;
+        }
+        .login-form:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            z-index: 1;
+        }
+        .login-form img {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            z-index: 2;
+        }
+        .login-form:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transform: scale(1.02);
+        }
+        .login-form h2 {
+            font-size: 1.8em;
+            margin-bottom: 1em;
+            text-align: center;
+            color: #333;
+            position: relative;
+            z-index: 2;
+        }
+        .login-form input[type="text"],
+        .login-form input[type="password"],
+        .login-form input[type="number"],
+        .login-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 2;
+        }
+        .login-form input[type="text"]:focus,
+        .login-form input[type="password"]:focus,
+        .login-form input[type="number"]:focus,
+        .login-form textarea:focus {
+            border-color: #ff9900;
+            outline: none;
+            box-shadow: 0 0 8px rgba(255, 153, 0, 0.2);
+        }
+        .login-form button {
+            padding: 12px;
+            background-color: #ff9900;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            width: 100%;
+            margin-top: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        .login-form button:hover {
+            background-color: #cc7a00;
+            transform: scale(1.05);
+        }
+        .privacy {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .privacy input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .login-form .links {
+            margin-top: 15px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .login-form .links a {
+            color: #ff9900;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.9em;
+        }
+        .login-form .links a:hover {
+            text-decoration: underline;
+        }
+        .message {
+            display: none;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 5px;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .message.success {
+            background-color: #28a745;
+        }
+        .message.error {
+            background-color: #dc3545;
+        }
+        @media (max-width: 600px) {
+            .login-form {
+                width: 90%;
+                padding: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Portofolio PUTRA S.O & WLDN S.P</h1>
+        <nav>
+            <a href="#about">Tentang</a>
+            <a href="#projects">Proyek</a>
+            <a href="#skills">Keahlian</a>
+            <a href="#contact">Kontak</a>
+            <a href="#comments-container" id="logout">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="login-form" id="login-form">
+            <img src="https://via.placeholder.com/50?text=Logo" alt="Logo">
+            <h2>Login</h2>
+            <form id="login-form-content">
+                <input type="text" id="full-name" placeholder="Nama Lengkap" required>
+                <input type="number" id="age" placeholder="Usia" required>
+                <input type="text" id="username" placeholder="Nama Pengguna" required>
+                <input type="password" id="password" placeholder="Kata Sandi" required>
+                <div class="privacy">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">Saya menyetujui <a href="#">syarat dan ketentuan</a> serta <a href="#">kebijakan privasi</a></label>
+                </div>
+                <button type="submit">Login</button>
+                <div class="links">
+                    <a href="#" id="forgot-password">Lupa Kata Sandi?</a>
+                    <a href="#" id="sign-up">Daftar</a>
+                </div>
+                <div class="message success" id="success-message">Login berhasil! Mengalihkan...</div>
+                <div class="message error" id="error-message">Login gagal. Periksa kembali detail Anda.</div>
+            </form>
+        </div>
+
+        <!-- Konten lainnya di sini -->
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 PUTRA S.O & WLDN S.P. Semua hak dilindungi.</p>
+    </footer>
+
+    <script>
+        document.getElementById('logout').addEventListener('click', function() {
+            sessionStorage.removeItem('loggedIn');
+            window.location.href = 'index.html';
+        });
+
+        if (sessionStorage.getItem('loggedIn') !== 'true') {
+            document.getElementById('login-form').style.display = 'block';
+        } else {
+            document.getElementById('login-form').style.display = 'none';
+        }
+
+        document.getElementById('login-form-content').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Validasi login sederhana
+            if (username === 'admin' && password === 'password') { 
+                document.getElementById('success-message').style.display = 'block';
+                setTimeout(function() {
+                    sessionStorage.setItem('loggedIn', 'true');
+                    window.location.href = 'portfolio.html';
+                }, 1500); // Delay 1.5 detik sebelum redirect
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+            }
+        });
+
+        document.getElementById('forgot-password').addEventListener('click', function() {
+            alert('Fitur "Lupa Kata Sandi" sedang dalam pengembangan.');
+        });
+
+        document.getElementById('sign-up').addEventListener('click', function() {
+            alert('Fitur "Daftar" sedang dalam pengembangan.');
+        });
+    </script>
+</body>
+</html>

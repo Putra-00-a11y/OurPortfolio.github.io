@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio PUTRA S.O & WLDN S.P</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+            padding: 1em 0;
+            text-align: center;
+            border-bottom: 5px solid #666;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 1px;
+        }
+        nav {
+            margin-top: 0.5em;
+        }
+        nav a {
+            color: #ffffff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s, transform 0.3s;
+        }
+        nav a:hover {
+            color: #ffcc00;
+            transform: scale(1.1);
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 60px auto;
+            padding-top: 80px; /* space for fixed header */
+        }
+        .section {
+            margin: 2em 0;
+        }
+        .login-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #ffffff url('https://via.placeholder.com/500x300?text=Background+Image') no-repeat center center;
+            background-size: cover;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            color: #333;
+        }
+        .login-form:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            z-index: 1;
+        }
+        .login-form img {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            z-index: 2;
+        }
+        .login-form:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transform: scale(1.02);
+        }
+        .login-form h2 {
+            font-size: 1.8em;
+            margin-bottom: 1em;
+            text-align: center;
+            color: #333;
+            position: relative;
+            z-index: 2;
+        }
+        .login-form input[type="text"],
+        .login-form input[type="password"],
+        .login-form input[type="number"],
+        .login-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 2;
+        }
+        .login-form input[type="text"]:focus,
+        .login-form input[type="password"]:focus,
+        .login-form input[type="number"]:focus,
+        .login-form textarea:focus {
+            border-color: #ff9900;
+            outline: none;
+            box-shadow: 0 0 8px rgba(255, 153, 0, 0.2);
+        }
+        .login-form button {
+            padding: 12px;
+            background-color: #ff9900;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            width: 100%;
+            margin-top: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        .login-form button:hover {
+            background-color: #cc7a00;
+            transform: scale(1.05);
+        }
+        .privacy {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .privacy input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .login-form .links {
+            margin-top: 15px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .login-form .links a {
+            color: #ff9900;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.9em;
+        }
+        .login-form .links a:hover {
+            text-decoration: underline;
+        }
+        .message {
+            display: none;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 5px;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .message.success {
+            background-color: #28a745;
+        }
+        .message.error {
+            background-color: #dc3545;
+        }
+        .rules {
+            margin: 2em 0;
+            padding: 1em;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .rules h2 {
+            margin-top: 0;
+            font-size: 1.6em;
+        }
+        .rules ul {
+            list-style-type: disc;
+            margin: 0;
+            padding-left: 20px;
+        }
+        .rules li {
+            margin: 10px 0;
+        }
+        .testimonial,
+        .blog,
+        .resources,
+        .gallery,
+        .contact,
+        .map,
+        .profiles {
+            background: #ffffff;
+            padding: 1.5em;
+            margin: 1.5em 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .testimonial h2,
+        .blog h2,
+        .resources h2,
+        .gallery h2,
+        .contact h2,
+        .map h2,
+        .profiles h2 {
+            margin-top: 0;
+            font-size: 1.6em;
+        }
+        .testimonial p,
+        .blog p,
+        .resources p,
+        .contact p,
+        .map p {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .gallery img {
+            width: calc(33% - 15px);
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .contact form {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact input,
+        .contact textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .contact button {
+            padding: 12px;
+            background-color: #ff9900;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .contact button:hover {
+            background-color: #cc7a00;
+        }
+        .map iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 5px;
+        }
+        .profiles table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .profiles table, .profiles th, .profiles td {
+            border: 1px solid #ddd;
+        }
+        .profiles th, .profiles td {
+            padding: 10px;
+            text-align: left;
+        }
+        .profiles th {
+            background-color: #f4f4f4;
+        }
+        .profiles img {
+            width: 100px;
+            height: auto;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+        footer {
+            background: #333;
+            color: #ffffff;
+            padding: 1em 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Portofolio PUTRA S.O & WLDN S.P</h1>
+        <nav>
+            <a href="#about">Tentang</a>
+            <a href="#projects">Proyek</a>
+            <a href="#skills">Keahlian</a>
+            <a href="#contact">Kontak</a>
+            <a href="#comments-container" id="logout">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Form Login -->
+        <div class="login-form" id="login-form">
+            <img src="https://via.placeholder.com/50?text=Logo" alt="Logo">
+            <h2>Login</h2>
+            <form id="login-form-content">
+                <input type="text" id="full-name" placeholder="Nama Lengkap" required>
+                <input type="number" id="age" placeholder="Usia" required>
+                <input type="text" id="username" placeholder="Nama Pengguna" required>
+                <input type="password" id="password" placeholder="Kata Sandi" required>
+                <div class="privacy">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">Saya menyetujui <a href="#">syarat dan ketentuan</a> serta <a href="#">kebijakan privasi</a></label>
+                </div>
+                <button type="submit">Login</button>
+                <div class="links">
+                    <a href="#" id="forgot-password">Lupa Kata Sandi?</a>
+                    <a href="#" id="sign-up">Daftar</a>
+                </div>
+                <div class="message success" id="success-message">Login berhasil! Mengalihkan...</div>
+                <div class="message error" id="error-message">Login gagal. Periksa kembali detail Anda.</div>
+            </form>
+        </div>
+
+        <!-- Bagian Profil -->
+        <div class="profiles" id="profiles">
+            <h2>Profil</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Foto</th>
+                        <th>Deskripsi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PUTRA S.O</td>
+                        <td><img src="https://via.placeholder.com/100?text=PUTRA+S.O" alt="PUTRA S.O"></td>
+                        <td>Pengembang perangkat lunak berpengalaman dengan keahlian dalam pengembangan web dan aplikasi. Menciptakan solusi inovatif dan efisien untuk berbagai tantangan teknologi.</td>
+                    </tr>
+                    <tr>
+                        <td>WLDN S.P</td>
+                        <td><img src="https://via.placeholder.com/100?text=WLDN+S.P" alt="WLDN S.P"></td>
+                        <td>Desainer grafis dan pengembang front-end dengan keterampilan dalam desain UI/UX. Memiliki pengalaman dalam menciptakan antarmuka pengguna yang intuitif dan estetis.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Bagian Aturan dan Ketentuan -->
+        <div class="rules" id="rules">
+            <h2>Aturan dan Ketentuan</h2>
+            <ul>
+                <li>Pengguna harus memberikan informasi yang akurat saat login.</li>
+                <li>Harap jangan membagikan kata sandi Anda dengan pihak lain.</li>
+                <li>Gunakan kata sandi yang kuat dan unik untuk keamanan yang lebih baik.</li>
+                <li>Jika Anda mengalami masalah, hubungi dukungan kami.</li>
+            </ul>
+        </div>
+
+        <!-- Bagian Testimonial -->
+        <div class="testimonial" id="testimonial">
+            <h2>Testimonial</h2>
+            <p>"Portofolio ini sangat mengesankan! Desainnya bersih dan profesional." - Client A</p>
+            <p>"Kami sangat puas dengan pekerjaan PUTRA S.O dan WLDN S.P. Sangat direkomendasikan!" - Client B</p>
+        </div>
+
+        <!-- Bagian Blog -->
+        <div class="blog" id="blog">
+            <h2>Blog Terbaru</h2>
+            <p>Di sini Anda akan menemukan artikel terbaru tentang tren teknologi, pengembangan perangkat lunak, dan banyak lagi. Tetap terhubung dengan blog kami untuk pembaruan terkini!</p>
+        </div>
+
+        <!-- Bagian Sumber Daya -->
+        <div class="resources" id="resources">
+            <h2>Sumber Daya</h2>
+            <p>Temukan berbagai sumber daya, alat, dan referensi yang bermanfaat untuk pengembangan perangkat lunak dan desain web di sini.</p>
+        </div>
+
+        <!-- Bagian Galeri -->
+        <div class="gallery" id="gallery">
+            <h2>Galeri Proyek</h2>
+            <img src="https://via.placeholder.com/300x200?text=Proyek+1" alt="Proyek 1">
+            <img src="https://via.placeholder.com/300x200?text=Proyek+2" alt="Proyek 2">
+            <img src="https://via.placeholder.com/300x200?text=Proyek+3" alt="Proyek 3">
+        </div>
+
+        <!-- Bagian Kontak -->
+        <div class="contact" id="contact">
+            <h2>Kontak Kami</h2>
+            <form id="contact-form">
+                <input type="text" id="contact-name" placeholder="Nama" required>
+                <input type="email" id="contact-email" placeholder="Email" required>
+                <textarea id="contact-message" rows="4" placeholder="Pesan" required></textarea>
+                <button type="submit">Kirim Pesan</button>
+            </form>
+        </div>
+
+        <!-- Bagian Peta Lokasi -->
+        <div class="map" id="map">
+            <h2>Lokasi Kami</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.868915383073!2d106.774029!3d-6.179754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e693f7b2ebc9%3A0x72e8f8f9a6e4b89!2sJakarta!5e0!3m2!1sid!2sid!4v1651208172711!5m2!1sid!2sid" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 PUTRA S.O & WLDN S.P. Semua hak dilindungi.</p>
+    </footer>
+
+    <script>
+        document.getElementById('logout').addEventListener('click', function() {
+            sessionStorage.removeItem('loggedIn');
+            window.location.href = 'index.html';
+        });
+
+        if (sessionStorage.getItem('loggedIn') !== 'true') {
+            document.getElementById('login-form').style.display = 'block';
+        } else {
+            document.getElementById('login-form').style.display = 'none';
+        }
+
+        document.getElementById('login-form-content').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Validasi login sederhana
+            if (username === 'admin' && password === 'password') { 
+                document.getElementById('success-message').style.display = 'block';
+                setTimeout(function() {
+                    sessionStorage.setItem('loggedIn', 'true');
+                    window.location.href = 'index.html';
+                }, 1500); // Delay 1.5 detik sebelum redirect
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+            }
+        });
+
+        document.getElementById('forgot-password').addEventListener('click', function() {
+            alert('Fitur "Lupa Kata Sandi" sedang dalam pengembangan.');
+        });
+
+        document.getElementById('sign-up').addEventListener('click', function() {
+            alert('Fitur "Daftar" sedang dalam pengembangan.');
+        });
+
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Pesan Anda telah dikirim. Terima kasih!');
+        });
+    </script>
+</body>
+</html>
